@@ -17,7 +17,7 @@ export class InMemoryHabitsRepository implements HabitsRepository {
     const week_Day = parsedDate.get('day')
     const possibleHabits = this.habits.filter(
       (habit) =>
-        habit.createdAt <= date && habit.habitWeekDays.value.includes(week_Day)
+        habit.createdAt <= date && habit.weekDays.value.includes(week_Day)
     )
     const completedHabits = this.habits
       .filter((habit) => habit.createdAt === parsedDate.toDate())

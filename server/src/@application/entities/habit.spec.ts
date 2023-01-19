@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import { describe, expect, it } from 'vitest'
 import { Habit } from './habit'
-import { HabitWeekDay } from './habit-week-day'
+import { WeekDays } from './week-days'
 
 describe('Habit', () => {
   it('Should be able to create habit', () => {
@@ -9,7 +9,7 @@ describe('Habit', () => {
     const habit = new Habit({
       title: 'Fake habit title',
       createdAt: today,
-      habitWeekDays: new HabitWeekDay([1, 2, 3]),
+      weekDays: new WeekDays([1, 2, 3]),
     })
 
     expect(habit).toBeTruthy()

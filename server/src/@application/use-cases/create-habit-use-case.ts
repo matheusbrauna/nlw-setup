@@ -1,11 +1,11 @@
 import dayjs from 'dayjs'
 import { Habit } from '../entities/habit'
-import { HabitWeekDay } from '../entities/habit-week-day'
+import { WeekDays } from '../entities/week-days'
 import { HabitsRepository } from '../repositories/habit.repositories'
 
 interface CreateHabitRequest {
   title: string
-  habitWeekDays: number[]
+  weekDays: number[]
 }
 
 interface CreateHabitResponse {
@@ -16,12 +16,12 @@ export class CreateHabitUseCase {
   constructor(private habitsRepository: HabitsRepository) {}
 
   async execute(request: CreateHabitRequest): Promise<CreateHabitResponse> {
-    const { title, habitWeekDays } = request
+    const { title, weekDays } = request
     const today = dayjs().startOf('day').toDate()
     const habit = new Habit({
       title,
       createdAt: today,
-      habitWeekDays: new HabitWeekDay(habitWeekDays),
+      weekDays: new WeekDays(weekDays),
     })
     await this.habitsRepository.create(habit)
 

@@ -1,18 +1,18 @@
 import { describe, expect, it } from 'vitest'
-import { HabitWeekDay } from './habit-week-day'
+import { WeekDays } from './week-days'
 
-describe('HabitWeekDay', () => {
+describe('WeekDays', () => {
   it('Should be able to create a habit week day', () => {
-    const habitWeekDay = new HabitWeekDay([5, 1])
+    const weekDay = new WeekDays([5, 1])
 
-    expect(habitWeekDay).toBeTruthy()
+    expect(weekDay).toBeTruthy()
   })
 
   it('Should not be able to create a habit week day with a value lower then 0', () => {
-    expect(() => new HabitWeekDay([-1, -2])).toThrow()
+    expect(() => new WeekDays([-1, -2])).toThrow()
   })
 
   it('Should not be able to create a habit week day with a value greater then 6', () => {
-    expect(() => new HabitWeekDay([7, 8])).toThrow()
+    expect(() => new WeekDays([7, 8])).toThrow()
   })
 })

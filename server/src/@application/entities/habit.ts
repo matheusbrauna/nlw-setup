@@ -1,11 +1,11 @@
 import { randomUUID } from 'node:crypto'
 import { Replace } from '../../helpers/replace'
-import { HabitWeekDay } from './habit-week-day'
+import { WeekDays } from './week-days'
 
 export interface HabitProps {
   title: string
   createdAt: Date
-  habitWeekDays?: HabitWeekDay
+  weekDays?: WeekDays
 }
 
 export class Habit {
@@ -32,12 +32,12 @@ export class Habit {
     return this.props.title
   }
 
-  public set habitWeekDays(habitWeekDays: HabitWeekDay) {
-    this.props.habitWeekDays = habitWeekDays
+  public set weekDays(weekDays: WeekDays) {
+    this.props.weekDays = weekDays
   }
 
-  public get habitWeekDays(): HabitWeekDay {
-    return this.props.habitWeekDays
+  public get weekDays(): WeekDays {
+    return this.props.weekDays
   }
 
   public get createdAt(): Date {

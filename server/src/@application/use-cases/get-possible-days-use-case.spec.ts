@@ -11,7 +11,7 @@ describe('GetPossibleDaysUseCase', () => {
 
     const { habit } = await createHabitUseCase.execute({
       title: 'Fake habit title',
-      habitWeekDays: [0, 1, 2],
+      weekDays: [0, 1, 2],
     })
 
     const { completedHabits, possibleHabits } =

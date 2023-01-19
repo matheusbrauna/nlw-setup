@@ -1,2 +1,3 @@
 *.dt.ts
 vite.config.ts
+seed.ts

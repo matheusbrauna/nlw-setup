@@ -15,6 +15,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@mermaid-js/mermaid-cli": "^9.3.0",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
@@ -23,6 +24,7 @@
     "nodemon": "^2.0.20",
     "prettier": "^2.8.3",
     "prisma": "^4.9.0",
+    "prisma-erd-generator": "^1.2.5",
     "rimraf": "^4.1.0",
     "ts-node": "^10.9.1",
     "tsup": "^6.5.0",
@@ -36,5 +38,8 @@
     "dayjs": "^1.11.7",
     "fastify": "^4.11.0",
     "zod": "^3.20.2"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   }
 }

@@ -9,7 +9,7 @@ describe('CreateHabitUseCase', () => {
 
     const { habit } = await createHabitUseCase.execute({
       title: 'Fake habit title',
-      habitWeekDays: [0, 1, 2],
+      weekDays: [0, 1, 2],
     })
 
     expect(habitsRepository.habits).toHaveLength(1)
