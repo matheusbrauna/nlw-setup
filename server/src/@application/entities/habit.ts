@@ -5,23 +5,18 @@ import { HabitWeekDay } from './habit-week-day'
 export interface HabitProps {
   title: string
   createdAt: Date
-  habitWeekDays: HabitWeekDay
-  isCompleted: boolean
+  habitWeekDays?: HabitWeekDay
 }
 
 export class Habit {
   private _id: string
   private props: HabitProps
 
-  constructor(
-    props: Replace<HabitProps, { createdAt?: Date; isCompleted?: boolean }>,
-    id?: string
-  ) {
+  constructor(props: Replace<HabitProps, { createdAt?: Date }>, id?: string) {
     this._id = id ?? randomUUID()
     this.props = {
       ...props,
-      createdAt: new Date(),
-      isCompleted: false,
+      createdAt: props.createdAt ?? new Date(),
     }
   }
 
@@ -43,14 +38,6 @@ export class Habit {
 
   public get habitWeekDays(): HabitWeekDay {
     return this.props.habitWeekDays
-  }
-
-  public set isCompleted(isCompleted: boolean) {
-    this.props.isCompleted = isCompleted
-  }
-
-  public get isCompleted(): boolean {
-    return this.props.isCompleted
   }
 
   public get createdAt(): Date {

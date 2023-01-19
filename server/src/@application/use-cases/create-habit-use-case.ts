@@ -18,13 +18,11 @@ export class CreateHabitUseCase {
   async execute(request: CreateHabitRequest): Promise<CreateHabitResponse> {
     const { title, habitWeekDays } = request
     const today = dayjs().startOf('day').toDate()
-
     const habit = new Habit({
       title,
       createdAt: today,
       habitWeekDays: new HabitWeekDay(habitWeekDays),
     })
-
     await this.habitsRepository.create(habit)
 
     return {
